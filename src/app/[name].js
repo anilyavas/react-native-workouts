@@ -11,7 +11,7 @@ export default function ExerciseDetailsScreen() {
   }
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Stack.Screen options={{ title: exercise.name }} />
       <View style={styles.panel}>
         <Text style={styles.exerciseName}>{exercise.name}</Text>
