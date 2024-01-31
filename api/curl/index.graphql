@@ -1,0 +1,18 @@
+type RootEntry {
+  difficulty: String
+  equipment: String
+  instructions: String
+  muscle: String
+  name: String
+  type: String
+}
+
+type Query {
+  myQuery(muscle: String): [RootEntry]
+    @rest(
+      endpoint: "https://api.api-ninjas.com/v1/exercises"
+      headers: [
+        { name: "x-api-key", value: "CUUr2QNl9PO/Z0TU/5EGbQ==Uj6DoCEJCNPjL8mQ" }
+      ]
+    )
+}

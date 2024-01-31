@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 export default function ExerciseDetailsScreen() {
   const [isInstructionExpanded, setIsInstructionExpanded] = useState(false);
+
   const params = useLocalSearchParams();
   const exercise = exercises.find((item) => item.name === params.name);
   if (!exercise) {
