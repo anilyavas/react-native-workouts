@@ -18,10 +18,17 @@ const exercisesQuery = gql`
 `;
 
 export default function ExercisesScreen() {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ['exercises'],
     queryFn: async () => {
-      return request(url, exercisesQuery);
+      return request({
+        url,
+        document: exercisesQuery,
+        requestHeaders: {
+          Authorization:
+            'apikey campigliamarittima::stepzen.io+1000::e8f1f13d8a937cc4f7e68c32a1cbef64070a0143ee2bb5d22b09933c06eab84d',
+        },
+      });
     },
   });
   if (isLoading) {
@@ -33,8 +40,8 @@ export default function ExercisesScreen() {
   return (
     <View style={styles.container}>
       <FlatList
+        data={data?.exercises}
         contentContainerStyle={{ gap: 5 }}
-        data={data}
         keyExtractor={(item, index) => item.name + index}
         renderItem={({ item }) => <ExerciseListItem item={item} />}
       />
