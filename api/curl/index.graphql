@@ -1,0 +1,32 @@
+type DocumentsEntry {
+  _id: String
+  exercise: String
+  reps: Int
+  weight: Float
+}
+
+type Root {
+  documents: [DocumentsEntry]
+}
+
+type Query {
+  sets: Root
+    @rest(
+      method: POST
+      endpoint: "https://eu-central-1.aws.data.mongodb-api.com/app/data-tkrgk/endpoint/data/v1/action/find"
+      headers: [
+        { name: "access-control-request-headers", value: "*" }
+        {
+          name: "api-key"
+          value: "drorvDPWnCJi3IczWu14vAQXm6MswqnSFP2sfo7zFfU8FjXonD6i6J1N7GpiJrLZ"
+        }
+      ]
+      postbody: """
+      {
+      "collection": "sets",
+      "dataSource": "Cluster0",
+      "database": "workouts"
+      }
+      """
+    )
+}

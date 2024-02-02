@@ -1,0 +1,14 @@
+username: anilyavas99 
+pass: cFJUd6YH7e4q4hDQ
+
+drorvDPWnCJi3IczWu14vAQXm6MswqnSFP2sfo7zFfU8FjXonD6i6J1N7GpiJrLZ
+
+curl  --request POST 'https://eu-central-1.aws.data.mongodb-api.com/app/data-tkrgk/endpoint/data/v1/action/find' \
+--header 'Content-Type: application/json' \
+--header 'Access-Control-Request-Headers: *' \
+--header 'api-key: drorvDPWnCJi3IczWu14vAQXm6MswqnSFP2sfo7zFfU8FjXonD6i6J1N7GpiJrLZ' \
+--data-raw '{
+    "collection":"sets",
+    "database":"workouts",
+    "dataSource":"Cluster0"
+}'
